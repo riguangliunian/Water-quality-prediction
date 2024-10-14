@@ -120,6 +120,11 @@ mape = mean_absolute_percentage_error(preds[:len(preds)],data[:len(preds)])
 
 mae = mean_absolute_error(preds[:len(preds)],data[:len(preds)])
 
+srocc, _ = spearmanr(data[:len(preds)], preds)
+
+krocc, _ = kendalltau(data[:len(preds)], preds)
+
+
 #mape过大 修正
 def mape_loss_func2(pred,label):
     return np.fabs((label-pred)/np.clip(label,0.1,1)).mean()
@@ -184,6 +189,10 @@ rmse = np.sqrt(mean_squared_error(newdata[3000:len(data)],data[3000:len(data)]))
 mape = mean_absolute_percentage_error(newdata[3000:len(data)],data[3000:len(data)])
 
 mae = mean_absolute_error(newdata[3000:len(data)],data[3000:len(data)])
+
+srocc, _ = spearmanr(newdata[3000:len(data)],data[3000:len(data)])
+
+krocc, _ = kendalltau(newdata[3000:len(data)],data[3000:len(data)])
 
 #mape过大 修正
 def mape_loss_func2(pred,label):
@@ -266,6 +275,10 @@ rmse = np.sqrt(mean_squared_error(newy_pred[3000:len(newy_pred)],data[3000:len(n
 mape = mean_absolute_percentage_error(newy_pred[3000:len(newy_pred)],data[3000:len(newy_pred)])
 
 mae = mean_absolute_error(newy_pred[3000:len(newy_pred)],data[3000:len(newy_pred)])
+
+srocc, _ = spearmanr(newy_pred[3000:len(newy_pred)],data[3000:len(newy_pred)])
+
+krocc, _ = kendalltau(newy_pred[3000:len(newy_pred)],data[3000:len(newy_pred)])
 
 #mape过大 修正
 def mape_loss_func2(pred,label):

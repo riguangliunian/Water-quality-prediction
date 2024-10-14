@@ -33,6 +33,8 @@ from scipy.signal import hilbert
 from vmdpy import VMD
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+from scipy.stats import spearmanr, kendalltau
+
 
 #封装数据（分解uVMD)
 def uVMD(data):
